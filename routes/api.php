@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\PaymentController;
+use App\Http\Controllers\Api\RestaurantControllerV1;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,5 +24,12 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::prefix('v1')->group(function () {
 
     Route::post('/payments',[PaymentController::class, 'store']);
+
+});
+
+
+Route::prefix('v1')->group(function () {
+
+    Route::post('/available-slots',[RestaurantControllerV1::class, 'store']);
 
 });
